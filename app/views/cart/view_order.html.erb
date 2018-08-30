@@ -1,0 +1,22 @@
+<div class="text-white">
+	<br>
+	<div class="card">
+		
+		<div class="card-header bg-danger"><h2>My Catering Order</h2></div>
+
+		
+		<div class="card-body text-dark">
+		  <% @line_items.each do |line_item| %><br>
+		    <%= line_item.menu_item.name %><br>
+		    <%= number_to_currency line_item.menu_item.price %><br>
+		    Qty: <%= line_item.quantity %><br>
+		    Subtotal: <%= number_to_currency line_item.line_item_total %><br>
+		    <br>
+		  <% end %>
+		</div>
+
+		<div class="text-center">
+		  <%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-info" %>
+		</div>
+	</div>
+</div>
